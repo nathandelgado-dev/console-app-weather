@@ -11,7 +11,7 @@ const question = [{
         },
         {
             value: 2,
-            name: `${'2.'.green} List tasks`
+            name: `${'2.'.green} Cities log`
         },
         {
             value: 0,
@@ -61,12 +61,12 @@ const readInput = async(message) => {
     return description;
 }
 
-const listDeleteTasks = async(tasks = []) => {
-    const choices = tasks.map((task, i) => {
+const listPlaces = async(places = []) => {
+    const choices = places.map((place, i) => {
         const index = `${i + 1}.`.green;
         return {
-            value: task.id,
-            name: `${index} ${task.description}`
+            value: place.id,
+            name: `${index} ${place.name}`
         }
     });
 
@@ -78,7 +78,7 @@ const listDeleteTasks = async(tasks = []) => {
     const questions = [{
         type: 'list',
         name: 'id',
-        message: 'Delete',
+        message: 'Select a Place!',
         choices
     }]
 
@@ -122,7 +122,7 @@ module.exports = {
     inquirerMenu,
     pause,
     readInput,
-    listDeleteTasks,
+    listPlaces,
     confirm,
     listCheckTasks
 }
