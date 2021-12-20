@@ -26,7 +26,8 @@ const main = async() => {
                 //Select a place
                 const idSelected = await listPlaces(placesFound);
                 if (idSelected === 0) continue;
-                const placeSelected = placesFound.find(p => p.id = idSelected);
+
+                const placeSelected = placesFound.find(p => p.id === idSelected);
                 //Save in DB
                 searches.addCitieslog(placeSelected.name);
 
@@ -39,8 +40,8 @@ const main = async() => {
 
                 console.log('\n Information of city:\n'.green);
                 console.log('City: ', (placeSelected.name).yellow);
-                console.log('Lat: ', placeSelected.lat);
                 console.log('Lng: ', placeSelected.lng);
+                console.log('Lat: ', placeSelected.lat);
                 console.log('Temperature: ', weather.temp, ('°').yellow);
                 console.log('Min: ', weather.min, ('°').yellow);
                 console.log('Max: ', weather.max, ('°').yellow);
@@ -54,13 +55,9 @@ const main = async() => {
                 })
 
                 break;
-
-            case 0:
-
-                break;
         }
 
-        await pause();
+        if (opt !== 0) await pause();
     }
     while (opt !== 0);
 

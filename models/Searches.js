@@ -72,7 +72,7 @@ class Searches {
             });
         } catch (err) {
             console.log(err);
-            console.log('no encuentro nada');
+            console.log('Not find it');
         }
     }
 
